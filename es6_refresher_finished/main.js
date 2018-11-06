@@ -1,8 +1,8 @@
 // CONST & LET
-let name = 'John';
+let name1 = 'John';
 let test;
 
-name = 'Jack';
+name1 = 'Jack';
 
 const person = {
   name: 'John',
@@ -20,7 +20,7 @@ function sayHello() {
   console.log('Hello');
 }
 
-const sayHello = name => console.log(`Hello ${name}`);
+const sayHello1 = name => console.log(`Hello ${name}`);
 
 const fruits = ['Apples', 'Oranges', 'Grapes'];
 
@@ -45,20 +45,20 @@ const arr = [1, 2, 3];
 const arr2 = [...arr, 4];
 const arr3 = [...arr.filter(num => num !== 2)];
 
-const person1 = {
+const person11 = {
   name: 'Brad',
   age: 36
 };
 
-const person2 = {
-  ...person1,
+const person22 = {
+  ...person11,
   email: 'brad@gmail.com'
 };
 
 // DESTRUCTURING
 
 const profile = {
-  name: 'John Doe',
+  name2: 'John Doe',
   address: {
     street: '40 Main st',
     city: 'Boston'
@@ -66,7 +66,7 @@ const profile = {
   hobbies: ['movies', 'music']
 };
 
-const { name, address, hobbies } = profile;
+const { name2, address, hobbies } = profile;
 const { street, city } = profile.address;
 
 // CLASSES
@@ -97,14 +97,14 @@ class Customer extends Person {
 }
 
 const customer1 = new Customer('Kevin', 32, 300);
-
+console.log(customer1)
 // MODULES
 
 // file 1 (file1.js)
-export const name = 'Jeff';
-export const nums = [1, 2, 3];
-export default Person;
+// export const name3 = 'Jeff';
+// export const nums = [1, 2, 3];
+// export default Person;
 
-// // file 2 (file2.js)
-import { name, nums } from './file1';
-import Person from './file1';
+// // // file 2 (file2.js)
+// import { name, nums } from './file1';
+// import Person from './file1';
