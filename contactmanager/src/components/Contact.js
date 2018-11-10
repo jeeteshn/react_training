@@ -11,16 +11,18 @@ class Contact extends Component {
     const {name, email, phone} = this.props.contact;
     return (
       <div className="card card-body mb-3">
-        <h4>{name}<i onClick={ () => 
-                              this.setState({ showContactInfo : !this.state.showContactInfo})
+        <h4>{name}<i  className="fas fa-sort-down" 
+                      onClick={ () => 
+                                this.setState({ showContactInfo : !this.state.showContactInfo})
                               }
-                              className="fas fa-sort-down"></i>
+                  ></i>
         </h4>
         {this.state.showContactInfo ? (
-        <ul className="list-group">
-          <li className="list-group-item">Email : {email}</li>
-          <li className="list-group-item">Phone : {phone}</li>
-        </ul>) : null}
+          <ul className="list-group">
+            <li className="list-group-item">Email : {email}</li>
+            <li className="list-group-item">Phone : {phone}</li>
+          </ul>) : null
+        }
       </div>
     );
   }
