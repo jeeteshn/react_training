@@ -10,7 +10,7 @@ import {Consumer} from '../../context.js';
     phone: ''
   }
 
-  onSubmit = (e) => {
+  onSubmit = (dispatch, e) => {
     e.preventDefault();
 
     const {name, email, phone} = this.state;
@@ -22,7 +22,11 @@ import {Consumer} from '../../context.js';
       phone
     }
     console.log(newContact);
+    dispatch ({type:'ADD_CONTACT', payload:newContact});
+
+    this.setState({name:'',email:'',phone:''});
   }
+
   onChange = (e) => this.setState({[e.target.name] : e.target.value});
 
   render() {
@@ -35,7 +39,7 @@ import {Consumer} from '../../context.js';
           <div className="card mb-3">
           <div className="card-header">Add Contact
             <div className="card-body">
-              <form onSubmit={this.onSubmit}>
+              <form onSubmit={this.onSubmit.bind(this, dispatch)}>
                 <div className="form-group">
                   <label htmlFor="name"></label>
                   <input  type="text" 
