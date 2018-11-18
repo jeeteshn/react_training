@@ -21,7 +21,7 @@ import {Consumer} from '../../context.js';
       email,
       phone
     }
-    console.log(newContact)
+    console.log(newContact);
   }
   onChange = (e) => this.setState({[e.target.name] : e.target.value});
 
