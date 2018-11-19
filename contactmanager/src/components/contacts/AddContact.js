@@ -8,13 +8,27 @@ import TextInputGroup from '../layout/TextInputGroup'
   state = {
     name: '',
     email: '',
-    phone: ''
+    phone: '',
+    errors: {}
   }
 
   onSubmit = (dispatch, e) => {
     e.preventDefault();
 
     const {name, email, phone} = this.state;
+
+    if (name == '') {
+      this.setState({errors:{name:'Name is required'}});
+      return;
+    }
+    if (email == '') {
+      this.setState({errors:{email:'Email is required'}});
+      return;
+    }
+    if (phone == '') {
+      this.setState({errors:{phone:'Phone is required'}});
+      return;
+    }
 
     const newContact = {
       id: uuid(),
@@ -25,13 +39,13 @@ import TextInputGroup from '../layout/TextInputGroup'
     console.log(newContact);
     dispatch ({type:'ADD_CONTACT', payload:newContact});
 
-    this.setState({name:'',email:'',phone:''});
+    this.setState({name:'',email:'',phone:'',errors:{}});
   }
 
   onChange = (e) => this.setState({[e.target.name] : e.target.value});
 
   render() {
-    const {name, email, phone}= this.state;
+    const {name, email, phone, errors}= this.state;
     return(
     <Consumer>
       {value=>{
@@ -47,6 +61,7 @@ import TextInputGroup from '../layout/TextInputGroup'
                   value={name}
                   name="name"
                   onChange={this.onChange}
+                  error={errors.name}
                 />
                 <TextInputGroup
                   label="Email"
@@ -55,6 +70,7 @@ import TextInputGroup from '../layout/TextInputGroup'
                   name="email"
                   type="email"
                   onChange={this.onChange}
+                  error={errors.email}
                 />
                 <TextInputGroup
                   label="Phone"
@@ -62,6 +78,7 @@ import TextInputGroup from '../layout/TextInputGroup'
                   value={phone}
                   name="phone"
                   onChange={this.onChange}
+                  error={errors.phone}
                 />
                 <input type="submit" value="Add Contact" className="btn btn-light btn-block"/>
               </form>
