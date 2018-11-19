@@ -6,13 +6,21 @@ class Test extends Component {
         test:'test'
     }
 
-    ComponentDidUpdate () {
+    componentDidMount () {
+        console.log("ComponentDidMount...");
+    }
+
+    componentWillMount () {
+        console.log("ComponentWillMount...");
+    }
+
+    componentDidUpdate () {
         console.log("ComponentDidUpdate...");
     }
-    ComponentWillUpdate () {
+    componentWillUpdate () {
         console.log("ComponentWillUpdate...");
     }
-    ComponentWillReceiveProps (nextProps, nextState) {
+    componentWillReceiveProps (nextProps, nextState) {
         console.log("ComponentWillReceiveProps...");
     }
     static getDerivedStateFromProps (nextProps, prevState) {
