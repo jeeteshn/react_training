@@ -3,36 +3,40 @@ import React, { Component } from 'react'
 class Test extends Component {
 
     state = {
-        test:'test'
+        title:'title',
+        body:''
     }
 
     componentDidMount () {
-        console.log("ComponentDidMount...");
+        fetch('https://jsonplaceholder.typicode.com/posts/1')
+            .then(response => response.json())
+            .then(data => this.setState({title:data.title, body:data.body}));
     }
 
-    componentWillMount () {
-        console.log("ComponentWillMount...");
-    }
+    // componentWillMount () {
+    //     console.log("ComponentWillMount...");
+    // }
 
-    componentDidUpdate () {
-        console.log("ComponentDidUpdate...");
-    }
-    componentWillUpdate () {
-        console.log("ComponentWillUpdate...");
-    }
-    componentWillReceiveProps (nextProps, nextState) {
-        console.log("ComponentWillReceiveProps...");
-    }
-    static getDerivedStateFromProps (nextProps, prevState) {
-        console.log("getDerivedStateFromProps...");
-        return null;
-    }
+    // componentDidUpdate () {
+    //     console.log("ComponentDidUpdate...");
+    // }
+    // componentWillUpdate () {
+    //     console.log("ComponentWillUpdate...");
+    // }
+    // componentWillReceiveProps (nextProps, nextState) {
+    //     console.log("ComponentWillReceiveProps...");
+    // }
+    // static getDerivedStateFromProps (nextProps, prevState) {
+    //     console.log("getDerivedStateFromProps...");
+    //     return null;
+    // }
 
   render() {
-    console.log("render...")
+    const {title, body} = this.state;
     return (
       <div>
-        <h1>Inside Test</h1>
+        <h1>{title}</h1>
+        <p>{body}</p>
       </div>
     );
   }
