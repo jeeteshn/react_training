@@ -17,15 +17,15 @@ import TextInputGroup from '../layout/TextInputGroup'
 
     const {name, email, phone} = this.state;
 
-    if (name == '') {
+    if (name === '') {
       this.setState({errors:{name:'Name is required'}});
       return;
     }
-    if (email == '') {
+    if (email === '') {
       this.setState({errors:{email:'Email is required'}});
       return;
     }
-    if (phone == '') {
+    if (phone === '') {
       this.setState({errors:{phone:'Phone is required'}});
       return;
     }
@@ -40,7 +40,9 @@ import TextInputGroup from '../layout/TextInputGroup'
     dispatch ({type:'ADD_CONTACT', payload:newContact});
 
     this.setState({name:'',email:'',phone:'',errors:{}});
-  }
+
+    this.props.history.push('/');
+  };
 
   onChange = (e) => this.setState({[e.target.name] : e.target.value});
 
