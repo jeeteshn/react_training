@@ -100,3 +100,36 @@ Header.propTypes = {
 };
 
 export default Header;
+
+## CSS in React
+Header.js
+const Header = props => {
+  const { branding } = props;  // Destructuring
+  return (
+      <div>
+        <h1 style={{color:'red', fontSize: '50px' }}> {brandng} </h1>
+      </div>
+  )
+}
+
+## State & The Context API
+ class AddContact extends Component {
+  
+  state = {
+    name: '',
+    email: '',
+    phone: ''
+  }
+
+  render() {
+    const {name, email, phone, errors}= this.state;
+    return(
+      <div>
+      {name}
+      {email}
+      {phone}
+      </div>
+    )}
+ }
+
+ export default AddContact;
