@@ -109,3 +109,27 @@ Header.propTypes = {
 
 export default Header;
 ```
+## Events in React
+```
+onDeleteClick = (id, dispatch) => {
+
+}
+render() {
+return (
+    <div>
+        <i className="fas fa-times"
+                        style={{cursor:'pointer', float:'right', color:'red'}}
+                        onClick={this.onDeleteClick.bind(this, id, dispatch)}></i>
+    </div>                        
+)}                        
+```                        
+## Changing State
+- Use <React.Fragment> instead of the container div under render() method since it removes unnecessary div's on the container, However if your container has css classes defined on it then leave it alone
+- `state` of a component is **immutable**, to modify the state use setState({showInfo:false});`
+- One tedious way of making the states available across component is through usage of props. 
+- For smaller application, state can be stored at a higher level which can then be accessed across the application. This can be achieved using `Context API`.
+- For larger application, usage of `Redux` is highly recommended.
+
+
+
+
