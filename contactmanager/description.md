@@ -34,7 +34,8 @@
 4. render returns jsx
 
 ## Create component
-1. rcc tab
+rcc tab
+```
 import React, { Component } from 'react'
 
 class Contact extends Component {
@@ -47,9 +48,11 @@ class Contact extends Component {
   }
 }
 export default Contact
+```
 
 ## create functional component
-1. rfc tab for functional component
+rfc tab for functional component
+```
 import React from 'react'
 
  const Header = () => {
@@ -61,9 +64,11 @@ import React from 'react'
 }
 
 export default Header;
+```
 
 ## props
-1. pass data to component
+pass data to component
+```
 app.js
 <Header branding="Contacts Manager v1.0"/>
 
@@ -76,11 +81,14 @@ const Header = props => {
       </div>
   )
 }
+```
 
-2. for class based component
-    a. use {this.props.branding}
+for class based component
+
+`use {this.props.branding}`
 
 ## Typechecking with propTypes
+```
 Header.js
 const Header = props => {
   const { branding } = props;  // Destructuring
@@ -100,3 +108,4 @@ Header.propTypes = {
 };
 
 export default Header;
+```
