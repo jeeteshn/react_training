@@ -130,6 +130,14 @@ return (
 - For smaller application, state can be stored at a higher level which can then be accessed across the application. This can be achieved using `Context API`.
 - For larger application, usage of `Redux` is highly recommended.
 
+## Context
+- https://reactjs.org/docs/context.html
+- In a typical React application, data is passed top-down (parent to child) via props, but this can be cumbersome for certain types of props (e.g. locale preference, UI theme) that are required by many components within an application. Context provides a way to share values like these between components without having to explicitly pass a prop through every level of the tree
+- Context lets you “broadcast” such data, and changes to it, to all components below
+- Every Context object comes with a Provider React component that allows consuming components to subscribe to context changes. One Provider can be connected to many consumers.
+- All consumers that are descendants of a Provider will re-render whenever the Provider’s value prop changes.
+- The **contextType** property on a class can be assigned a Context object created by React.createContext(). This lets you consume the nearest current value of that Context type using **this.context**. You can reference this in any of the lifecycle methods including the render function.
+
 
 
 
